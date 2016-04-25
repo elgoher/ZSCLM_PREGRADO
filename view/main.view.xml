@@ -248,7 +248,7 @@
 															<!--<Input editable="false" id="oICiudadRes" value="{TxtCiudadRes}" width="100%"/>-->
 															<Select enabled="false" id="oSCiudadRes" selectedKey="{CiudadRes}">
 																<items>
-																<!--	<sap.ui.core:ListItem id="oLICiudadRes"/>-->
+																	<sap.ui.core:ListItem id="oLICiudadRes"/>
 																</items>
 															</Select>
 														</sap.ui.layout.form:fields>

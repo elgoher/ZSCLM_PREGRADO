@@ -2024,8 +2024,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 												sValue = oInput.getValue();
 											} else if (oInput.getSelectedItem) {
 												// console.log(oField.getId() + " Valor: " + oInput.getSelectedItem().getText());
-												if(oInput.getSelectedItem().getText){
-													sValue = oInput.getSelectedItem().getText();
+												var oItem = oInput.getSelectedItem();
+												if(oItem.getText){
+													// sValue = oInput.getSelectedItem().getText();
+													sValue = oItem.getText();
 												}else{
 													sValue = "";
 												}

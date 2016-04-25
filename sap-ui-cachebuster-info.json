@@ -1,7 +1,7 @@
 {
   ".gitattributes": "1461598233648",
   "Component.js": "1461351778251",
-  "controller/main.controller.js": "1461602086438",
+  "controller/main.controller.js": "1461603692689",
   "css/style.css": "1461602371528",
   "i18n/i18n.properties": "1460931925619",
   "index.html": "1460931925737",
@@ -15,7 +15,7 @@
   "view/Colegio.fragment.xml": "1460931925808",
   "view/Direccion.fragment.xml": "1460931925871",
   "view/Load.fragment.xml": "1460931925910",
-  "view/main.view.xml": "1461290440693",
+  "view/main.view.xml": "1461603723867",
   "view/TituloBachiller.fragment.xml": "1460931925974",
   "view/TituloUniversitario.fragment.xml": "1460931926024",
   "view/Universidad.fragment.xml": "1460931926033"
