@@ -2322,7 +2322,6 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 						this.goToTab(oITBMenu, "__xmlview0--oITFDatosInscripcion", 0);
 						this.showDialog("Complete los datos de esta pestaña");
 					}
-					this.lockForm("oITFDatosInscripcion");
 					break;
 
 				case "__xmlview0--oITFDatosAcademicos":
@@ -2334,6 +2333,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 								this.createEstudiante();
 							}
 							this.lockForm("oITFDatosPersonales");
+							this.lockForm("oITFDatosInscripcion");
 						} else {
 							if (sAcceptCond === "0") {
 								this.goToTab(oITBMenu, "__xmlview0--oITFDatosPersonales", 1);
