@@ -1,0 +1,29 @@
+/* Enter your custom styles here */
+
+label {
+    white-space: pre-line !important;
+}
+h4[id="__xmlview0--__title4"] {
+    visibility: hidden;
+}
+.sapMTitle {
+    white-space: pre-wrap;
+}
+.margen-izq-2-5 {
+    margin-left: 2.5em;
+}
+.word-wrap {
+    white-space: pre-line;
+}
+.sapMInputBaseInner.sapMInputBaseReadonlyInner {
+    border-color: #bfbfbf;
+    background-color: #e5e5e5;
+}
+.warning {
+    border: 2px solid #f0ab00;
+}
+.sapMSltDisabled {
+    border-color: #bfbfbf;
+    background-color: #e5e5e5;
+    opacity: 1;
+}

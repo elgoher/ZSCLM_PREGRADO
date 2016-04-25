@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="oTSDUniversidad" noDataText="No se encontraron universidades" title="Seleccionar Universidad"
+		search="handleUniversidadSearch" confirm="handleUniversidadConfirm" close="handleUniversidadClose">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier title="{Stext}"/>
+				<Text text="{Objid}"/>
+				<Text text="{Landx50}"/>
+				<Text text="{Bezei}"/>
+				<Text text="{Ort01}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="40%">
+				<header>
+					<Text text="Universidad"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true">
+				<header>
+					<Text text="Codigo"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" width="20%">
+				<header>
+					<Text text="Pais"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Right">
+				<header>
+					<Text text="Region"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="Ciudad"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

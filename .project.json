@@ -1,0 +1,30 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "sap.watt.uitools.ide.web"
+  ],
+  "generation": [
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationProject",
+      "templateVersion": "1.32.0",
+      "dateTimeStamp": "Tue, 15 Mar 2016 19:24:39 GMT"
+    }
+  ],
+  "translation": {
+    "supportedLanguages": "es",
+    "defaultLanguage": "es",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "deploy": {
+    "destination": "USA_SGW",
+    "name": "ZSLCM_PREGRADO"
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/ZSLCM_PREGRADO_SRV",
+    "metadataFilePath": "",
+    "mockRequestsFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false
+  }
+}

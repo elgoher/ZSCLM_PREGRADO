@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="oTSDTituloBachiller" noDataText="No se encontraron titulos secundarios" title="Seleccionar Titulo Bachiller" 
+						search="handleTituloBachillerSearch" confirm="handleTituloBachillerConfirm" close="handleTituloBachillerClose">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier title="{Objid}"/>
+				<Text text="{Stext}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="20%">
+				<header>
+					<Text text="Codigo"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="Titulo"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>

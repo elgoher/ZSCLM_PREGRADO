@@ -1,0 +1,22 @@
+{
+  ".gitattributes": "1461598233648",
+  "Component.js": "1461351778251",
+  "controller/main.controller.js": "1461596691910",
+  "css/style.css": "1460931925559",
+  "i18n/i18n.properties": "1460931925619",
+  "index.html": "1460931925737",
+  "js/Formatter.js": "1461363219377",
+  "manifest.json": "1460932083428",
+  "model/models.js": "1460931925776",
+  "resources/css/style.css": "1460931925559",
+  "resources/image/logo2.jpg": "1461083168098",
+  "resources/js/Formatter.js": "1461363219377",
+  "view/autorizaciones.fragment.xml": "1461171326831",
+  "view/Colegio.fragment.xml": "1460931925808",
+  "view/Direccion.fragment.xml": "1460931925871",
+  "view/Load.fragment.xml": "1460931925910",
+  "view/main.view.xml": "1461290440693",
+  "view/TituloBachiller.fragment.xml": "1460931925974",
+  "view/TituloUniversitario.fragment.xml": "1460931926024",
+  "view/Universidad.fragment.xml": "1460931926033"
+}

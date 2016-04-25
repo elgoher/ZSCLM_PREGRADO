@@ -1,0 +1,167 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout">
+<Dialog xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" title="Tomar Dirección" contentWidth="80%">
+	<content>
+	<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" id="oLayGen" editable="true">
+		<sap.ui.layout.form:title>
+			<core:Title id="oTdir" level="H2" text="Dirección"/>
+		</sap.ui.layout.form:title>
+		<sap.ui.layout.form:layout>
+		<sap.ui.layout.form:ResponsiveGridLayout id="oRGLaygen" emptySpanL="1" emptySpanM="1" emptySpanS="1" labelSpanL="4"/>
+		</sap.ui.layout.form:layout>
+		<sap.ui.layout.form:formContainers>
+			<sap.ui.layout.form:FormContainer id="oFCdir">
+				<sap.ui.layout.form:formElements>
+					<sap.ui.layout.form:FormElement id="oFEdir1">
+						<sap.ui.layout.form:fields>
+							<Select id="oSDir1" items="{/DireccionSet}" change="getSelectDir1">
+								<items>
+									<core:ListItem id="oLIDir1" key="{Codigo}" text="{Texto}"/>
+								</items>
+								<layoutData>
+								<sap.ui.layout:GridData spanXL="3" spanL="3" spanM="3" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanLarge="3" spanMedium="3" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir1"/>
+								</layoutData>
+							</Select>
+							<Input id="oIDir2" change="getSelectDir2" width="100%">
+								<layoutData>
+								<sap.ui.layout:GridData spanXL="2" spanL="2" spanM="2" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanLarge="2" spanMedium="2" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir2"/>
+								</layoutData>
+							</Input>
+							<Select id="oSDir3" change="getSelectDir3" selectedItemId="__xmlview0--oLIDir3_Vacio" selectedKey="oSDir3_Vacio">
+								<items>
+									<core:ListItem id="oLIDir3_Vacio" key="oSDir3_Vacio" text=""/>
+									<core:ListItem id="oLIDir3_a" key="A" text="A"/>
+									<core:ListItem id="oLIDir3_b" key="B" text="B"/>
+									<core:ListItem id="oLIDir3_c" key="C" text="C"/>
+									<core:ListItem id="oLIDir3_d" key="D" text="D"/>
+									<core:ListItem id="oLIDir3_e" key="E" text="E"/>
+									<core:ListItem id="oLIDir3_f" key="F" text="F"/>
+									<core:ListItem id="oLIDir3_g" key="G" text="G"/>
+									<core:ListItem id="oLIDir3_h" key="H" text="H"/>
+									<core:ListItem id="oLIDir3_i" key="I" text="I"/>
+									<core:ListItem id="oLIDir3_j" key="J" text="J"/>
+									<core:ListItem id="oLIDir3_k" key="K" text="K"/>
+									<core:ListItem id="oLIDir3_l" key="L" text="L"/>
+									<core:ListItem id="oLIDir3_m" key="M" text="M"/>
+									<core:ListItem id="oLIDir3_n" key="N" text="N"/>
+									<core:ListItem id="oLIDir3_o" key="O" text="O"/>
+									<core:ListItem id="oLIDir3_p" key="P" text="P"/>
+									<core:ListItem id="oLIDir3_q" key="Q" text="Q"/>
+									<core:ListItem id="oLIDir3_r" key="R" text="R"/>
+									<core:ListItem id="oLIDir3_s" key="S" text="S"/>
+									<core:ListItem id="oLIDir3_t" key="T" text="T"/>
+									<core:ListItem id="oLIDir3_u" key="U" text="U"/>
+									<core:ListItem id="oLIDir3_v" key="V" text="V"/>
+									<core:ListItem id="oLIDir3_w" key="W" text="W"/>
+									<core:ListItem id="oLIDir3_x" key="X" text="X"/>
+									<core:ListItem id="oLIDir3_y" key="Y" text="Y"/>
+									<core:ListItem id="oLIDir3_z" key="Z" text="Z"/>
+								</items>
+								<layoutData>
+								<sap.ui.layout:GridData spanXL="1" spanL="1" spanM="2" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanLarge="1" spanMedium="2" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir3"/>
+								</layoutData>
+							</Select>
+							<Text text="#" maxLines="0" id="oTNumeral" wrapping="true" textAlign="End">
+							<layoutData>
+							    <sap.ui.layout:GridData xmlns:sap.ui.layout="sap.ui.layout" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" spanXL="1" spanM="1" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanMedium="1" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir4" spanL="1" spanLarge="1"/>
+							</layoutData>
+							</Text>
+							<Input id="oIDir4" change="getSelectDir4" width="100%">
+							    <layoutData>
+							    <sap.ui.layout:GridData spanXL="2" spanL="2" spanM="2" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanLarge="2" spanMedium="2" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir5"/>
+							    </layoutData>
+							</Input>
+							<Select id="oSDir5" change="getSelectDir5" selectedItem="Element sap.ui.core.ListItem#oLIDir5_Vacio" selectedKey="oSDir5_Vacio" selectedItemId="oLIDir5_Vacio">
+							    <items>
+							        <core:ListItem id="oLIDir5_Vacio" key="oSDir5_Vacio"/>
+							        <core:ListItem id="oLIDir5_a" text="A" key="A"/>
+							        <core:ListItem id="oLIDir5_b" text="B" key="B"/>
+							        <core:ListItem id="oLIDir5_c" text="C" key="C"/>
+							        <core:ListItem id="oLIDir5_d" text="D" key="D"/>
+							        <core:ListItem id="oLIDir5_e" text="E" key="E"/>
+							        <core:ListItem id="oLIDir5_f" text="F" key="F"/>
+							        <core:ListItem id="oLIDir5_g" text="G" key="G"/>
+							        <core:ListItem id="oLIDir5_h" text="H" key="H"/>
+							        <core:ListItem id="oLIDir5_i" text="I" key="I"/>
+							        <core:ListItem id="oLIDir5_j" text="J" key="J"/>
+							        <core:ListItem id="oLIDir5_k" text="K" key="K"/>
+							        <core:ListItem id="oLIDir5_l" text="L" key="L"/>
+							        <core:ListItem id="oLIDir5_m" text="M" key="M"/>
+							        <core:ListItem id="oLIDir5_n" text="N" key="N"/>
+							        <core:ListItem id="oLIDir5_o" text="O" key="O"/>
+							        <core:ListItem id="oLIDir5_p" text="P" key="P"/>
+							        <core:ListItem id="oLIDir5_q" text="Q" key="Q"/>
+							        <core:ListItem id="oLIDir5_r" text="R" key="R"/>
+							        <core:ListItem id="oLIDir5_s" text="S" key="S"/>
+							        <core:ListItem id="oLIDir5_t" text="T" key="T"/>
+							        <core:ListItem id="oLIDir5_u" text="U" key="U"/>
+							        <core:ListItem id="oLIDir5_v" text="V" key="V"/>
+							        <core:ListItem id="oLIDir5_w" text="W" key="W"/>
+							        <core:ListItem id="oLIDir5_x" text="X" key="X"/>
+							        <core:ListItem id="oLIDir5_y" text="Y" key="Y"/>
+							        <core:ListItem id="oLIDir5_z" text="Z" key="Z"/></items>
+							<layoutData>
+							<sap.ui.layout:GridData spanXL="1" spanL="1" spanM="1" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanLarge="1" spanMedium="1" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir6"/>
+							</layoutData>
+							</Select>
+							<Text xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:sap.ui.layout.form="sap.ui.layout.form" xmlns:sap.ui.layout="sap.ui.layout" text="-" maxLines="0" id="oTMenos" wrapping="true" textAlign="End">
+							    <layoutData>
+							        <sap.ui.layout:GridData xmlns:sap.ui.layout="sap.ui.layout" spanXL="1" spanM="1" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanMedium="1" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLayDir4_copy" spanL="1" spanLarge="1"/>
+							        
+							    </layoutData>
+							    
+							</Text>
+							<Input id="oIDir6" change="getSelectDir6" width="100%" type="Number">
+							    <layoutData>
+							    <sap.ui.layout:GridData spanXL="1" spanL="1" spanM="1" spanS="0" indentXL="0" indentL="0" indentM="0" indentS="0" spanLarge="1" spanMedium="1" spanSmall="0" indentLarge="0" indentMedium="0" indentSmall="0" id="oLaydir8"/>
+							    </layoutData>
+							</Input>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="oFE3">
+						<sap.ui.layout.form:fields>
+							<Select id="oSdir7" change="getSelectDir7" items="{/DireccionSet}">
+								<items>
+								<core:ListItem id="oLIDir7" key="{Codigo}" text="{Texto}"/>
+                                </items>
+								<layoutData>
+									<sap.ui.layout:GridData spanL="3" indentS="0" indentLarge="0" indentMedium="0" id="oLayDir9" indentL="0" indentM="0" indentSmall="0" indentXL="0" spanLarge="3" spanM="3" spanMedium="3" spanS="0" spanSmall="0" spanXL="0"/>
+								</layoutData>
+							</Select>
+							<Input id="oIDir8" change="getSelectDir8" width="100%">
+								<layoutData>
+									<sap.ui.layout:GridData spanL="3" indentS="0" indentLarge="0" indentMedium="0" id="oLayDir10" indentL="0" indentM="0" indentSmall="0" indentXL="0" spanLarge="3" spanM="3" spanMedium="3" spanS="0" spanSmall="0" spanXL="0"/>
+								</layoutData>
+							</Input>
+							<Select id="oSDir9" change="getSelectDir9" items="{/DireccionSet}">
+								<items>
+									<core:ListItem id="oLIDir9" key="{Codigo}" text="{Texto}"/>
+									</items>
+								<layoutData>
+									<sap.ui.layout:GridData spanL="3" indentS="0" indentLarge="0" indentMedium="0" id="oLayDir11" indentL="0" indentM="0" indentSmall="0" indentXL="0" spanLarge="3" spanM="3" spanMedium="3" spanS="0" spanSmall="0" spanXL="0"/>
+								</layoutData>
+							</Select>
+							<Input id="oIDir10" change="getSelectDir10" width="100%">
+								<layoutData>
+									<sap.ui.layout:GridData spanL="3" indentS="0" indentLarge="0" indentMedium="0" id="oLayDir12" indentL="0" indentM="0" indentSmall="0" indentXL="0" spanLarge="3" spanM="3" spanMedium="3" spanS="0" spanSmall="0" spanXL="0"/>
+								</layoutData>
+							</Input>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+					<sap.ui.layout.form:FormElement id="oFE4">
+						<sap.ui.layout.form:fields>
+							<HBox alignItems="Center" displayInline="true" fitContainer="false" id="dir__hbox0" justifyContent="Center" width="100%">
+								<items>
+									<Button id="oBtnTomarDir" class="margen-izq-2-5" text="Tomar" press="onPress" width="100px"/>
+									<Button id="oBtnCancelarDir" class="margen-izq-2-5" text="Cancelar" press="onPress" width="100px"/>
+								</items>
+							</HBox>
+						</sap.ui.layout.form:fields>
+					</sap.ui.layout.form:FormElement>
+				</sap.ui.layout.form:formElements>
+				<sap.ui.layout.form:layoutData/>
+			</sap.ui.layout.form:FormContainer>
+		</sap.ui.layout.form:formContainers>
+	</sap.ui.layout.form:Form>
+	</content>
+</Dialog>
+</core:FragmentDefinition>

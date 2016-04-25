@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<TableSelectDialog id="oTSDTituloUniversitario" noDataText="No se encontraron titulos universitarios" title="Seleccionar Titulo Universitario" 
+						search="handleTituloUniversitarioSearch" confirm="handleTituloUniversitarioConfirm" close="handleTituloUniversitarioClose">
+		<ColumnListItem>
+			<cells>
+				<ObjectIdentifier title="{Objid}"/>
+				<Text text="{Stext}"/>
+			</cells>
+		</ColumnListItem>
+		<columns>
+			<Column width="20%">
+				<header>
+					<Text text="Codigo"/>
+				</header>
+			</Column>
+			<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+				<header>
+					<Text text="Titulo"/>
+				</header>
+			</Column>
+		</columns>
+	</TableSelectDialog>
+</core:FragmentDefinition>
