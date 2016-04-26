@@ -667,7 +667,7 @@
 															</Label>
 														</sap.ui.layout.form:label>
 														<sap.ui.layout.form:fields>
-															<Input id="oIcodigoSNP" width="100%" editable="false" type="Number">
+															<Input id="oIcodigoSNP" width="100%" editable="false">
 																<layoutData>
 																	<sap.ui.layout:GridData id="__data29" indentL="0" indentLarge="0" indentM="0" indentMedium="0" indentS="0" indentSmall="0" indentXL="0"
 																		spanL="0" spanLarge="0" spanM="4" spanMedium="4" spanS="0" spanSmall="0" spanXL="0" xmlns:sap.ui.layout="sap.ui.layout"/>

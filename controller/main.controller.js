@@ -118,7 +118,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			var sPath = "/TituloBachillerSet?$filter=startswith(Stext, '" + sTextSearch + "')";
 			if (!this._oDialogTituloColegio) {
 				this._oDialogTituloColegio = sap.ui.xmlfragment("oDialogTituloColegio", "ZSLCM_PREGRADO.view.TituloBachiller", this);
+				this._oDialogTituloColegio.setContentWidth("50%");
 			}
+			if(this.aSaveEstudio === false){
 			var oColModel = new sap.ui.model.json.JSONModel();
 			oColModel.setData({
 				cols: [{
@@ -150,6 +152,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", oView, this._oDialogTituloColegio);
 			this._oDialogTituloColegio.open(sTextSearch);
+			}
 		},
 		handleTituloBachillerSearch: function(evt) {
 			var sValue = evt.getParameter("value");
@@ -195,7 +198,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			var sPath = "/TituloUniversitarioSet?$filter=startswith(Stext, '" + sTextSearch + "')";
 			if (!this._oDialogTituloUniversitario) {
 				this._oDialogTituloUniversitario = sap.ui.xmlfragment("oDialogTituloUniversitario", "ZSLCM_PREGRADO.view.TituloUniversitario", this);
+				this._oDialogTituloUniversitario.setContentWidth("50%");
 			}
+			if(this.aSaveEstudio === false){
 			var oColModel = new sap.ui.model.json.JSONModel();
 			oColModel.setData({
 				cols: [{
@@ -227,6 +232,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", oView, this._oDialogTituloUniversitario);
 			this._oDialogTituloUniversitario.open(sTextSearch);
+			}
 		},
 		handleTituloUniversitarioSearch: function(evt) {
 			var sValue = evt.getParameter("value");
@@ -273,6 +279,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			if (!this._oDialogcolegio) {
 				this._oDialogcolegio = sap.ui.xmlfragment("oDialogcolegio", "ZSLCM_PREGRADO.view.Colegio", this);
 			}
+			if(this.aSaveEstudio === false){
 			var oColModel = new sap.ui.model.json.JSONModel();
 			oColModel.setData({
 				cols: [{
@@ -317,6 +324,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", oView, this._oDialogcolegio);
 			this._oDialogcolegio.open(sTextSearch);
+			}
 		},
 		handleColegioSearch: function(evt) {
 			var sValue = evt.getParameter("value");
@@ -368,6 +376,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			if (!this._oDialogUniversidad) {
 				this._oDialogUniversidad = sap.ui.xmlfragment("oDialogUniversidad", "ZSLCM_PREGRADO.view.Universidad", this);
 			}
+			if(this.aSaveEstudio === false){
 			var oColModel = new sap.ui.model.json.JSONModel();
 			oColModel.setData({
 				cols: [{
@@ -412,6 +421,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			// toggle compact style
 			jQuery.sap.syncStyleClass("sapUiSizeCompact", this.getView(), this._oDialogUniversidad);
 			this._oDialogUniversidad.open(sTextSearch);
+			}
 		},
 		handleUniversidadSearch: function(evt) {
 			var sValue = evt.getParameter("value");
@@ -773,6 +783,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					oITFDatosPersonales.getElementBinding().attachEventOnce("dataReceived", jQuery.proxy(function() {
 						oData = oITFDatosPersonales.getModel().getData(sEntityPath);
 						if (!oData) {
+							that.clearform();
 							oINumEst.data("EstudianteAntiguo", "", true);
 							that.showDialog("Documento no encontrado...\n" + "Ingrese sus datos manualmente");
 							that.unlockForm(oITFDatosPersonales, oView);
@@ -1308,7 +1319,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			if (oView.byId("oTNumIden").data("liquidar") === "" || oView.byId("oTNumIden").data("liquidar") === null) {
 				var sPath = "TextoHabeasSet('"+that.TextPopUP+"')";
 				oModel.read(sPath, null, null, false, function(oData, oResponse) {
-					sTextPopUp = oData.Texto;
+					sTextPopUp = oData.Texto.toString();
+					var TextArray = sTextPopUp.split("<br>");
+					sTextPopUp = "";
+					$.each(TextArray, function(index,text){
+						if(text !== "" || text !== "<br>"){
+							sTextPopUp = sTextPopUp + text + "\n";
+					}
+					});
 				});
 				var dialog = new sap.m.Dialog({
 					title: "Condiciones de la Admisión",
@@ -1996,6 +2014,70 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 				this.showDialog("Has completado los campos de esta pestaña! puedes seguir a la siguiente pestaña");
 			}
 		},
+		//limpiar campos formulario
+		clearform: function(){
+			// var sValue;
+			// var that = this;
+			// var sComplete = true;
+			var oView = this.getView();
+			var oITBMenu = oView.byId("oITBMenu");
+			var sKey = oITBMenu.getSelectedKey();
+			var oITFactual = oView.byId(sKey);
+			var oContent = oITFactual.getContent();
+			$.each(oContent, function(iEIndex, oForm) {
+				if (oForm.getFormContainers) { //es Form
+					var oFormContainers = oForm.getFormContainers();
+					$.each(oFormContainers, function(iFCIndex, oFormContainer) {
+						var oFormElements = oFormContainer.getFormElements();
+						$.each(oFormElements, function(iFEIndex, oFormElement) {
+							if (oFormElement.getLabelControl) {
+								var oLabel = oFormElement.getLabelControl();
+								var oFields = oFormElement.getFields();
+								if (oLabel !== null) {
+									// if (oLabel.getRequired()) {
+										$.each(oFields, function(iFIndex, oField) {
+											var oInput = oView.byId(oField.getId());
+											if (oInput.getValue) {
+												// console.log(oField.getId() + " Valor: " + oInput.getValue());
+												// sValue = oInput.getValue();
+												if(oField.getId() !== "__xmlview0--oINumEst"){
+													oInput.setValue("");
+												}
+												// if(oField.getId() !== "__xmlview0--oINumIdenRef"){
+												// 	oInput.setValue("");	
+												// }
+											} else if (oInput.getSelectedItem) {
+												// console.log(oField.getId() + " Valor: " + oInput.getSelectedItem().getText());
+												// sValue = oInput.getSelectedItem().getText();
+												oInput.setValue("");
+											}
+										});
+									// }
+								}
+							}
+						});
+					});
+				}
+			});
+											// if (sValue === "") {
+											// 	if (oInput.setValueState) {
+											// 		oInput.setValueState(sap.ui.core.ValueState.Warning);
+											// 		sComplete = false;
+											// 	} else {
+											// 		oInput.addStyleClass("warning");
+											// 		sComplete = false;
+											// 	}
+											// 	// console.log(sComplete);
+											// 	// iPos = that.getTabPos(sKey);
+											// 	//             that.goToTab(oITBMenu,"__xmlview0--"+sKey ,iPos);
+											// } else {
+											// 	if (oInput.setValueState) {
+											// 		oInput.setValueState(sap.ui.core.ValueState.None);
+											// 	} else {
+											// 		oInput.removeStyleClass("warning");
+											// 	}
+											// }
+		},
 		//validar campos formulario
 		valForm: function(sKey) {
 			var sValue;
@@ -2046,6 +2128,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 												    oField.getId() === "__xmlview0--oIsegundoApellidoRef") {
 													oInput.setValueState(sap.ui.core.ValueState.None);
 													sIncomplete = true;
+												}
+												if (oInput.getValueState) {
+													if(oInput.getValueState() === sap.ui.core.ValueState.Error){
+														sIncomplete = false;
+													}
+												} else {
+													oInput.addStyleClass("warning");
+													sIncomplete = false;
 												}
 												// console.log(sIncomplete);
 												// iPos = that.getTabPos(sKey);
@@ -2591,6 +2681,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					break;
 			}
 			if (sKey === "N") {
+				oSelectCual.setSelectedKey("");
 				oSelectCual.setEnabled(false);
 				oLabel.setRequired(false);
 			} else {

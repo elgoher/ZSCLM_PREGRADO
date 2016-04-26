@@ -18,7 +18,6 @@ h4[id="__xmlview0--__title4"] {
 .sapMInputBaseInner.sapMInputBaseReadonlyInner {
     border-color: #bfbfbf;
     background-color: #e5e5e5;
-    
 }
 .warning {
     border: 2px solid #f0ab00;
@@ -150,4 +149,8 @@ div.sapMBtnInner.sapMBtnAccept {
     background-color: #0E5791;
     border-color: #0E5791;
     opacity: 0.6;
+}
+.sapMSelectListItemBaseSelected {
+    background: #00457C;
+    color: #ffffff;
 }
