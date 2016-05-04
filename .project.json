@@ -17,7 +17,7 @@
     "resourceModelName": "i18n"
   },
   "deploy": {
-    "destination": "USA_DEV",
+    "destination": "USA_SGW",
     "name": "ZSLCM_PREGRADO"
   },
   "mockpreview": {

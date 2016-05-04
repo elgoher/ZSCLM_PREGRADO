@@ -107,6 +107,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			this.aSaveReferencia = false;
 			this.aEncuesta = false;
 			this.aSaveSaber = false;
+			this.aUpdateDir = false;
 			this.TextPopUP = "";
 		},
 		//ayuda de busqueda titulo secundario
@@ -552,6 +553,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 							oView.byId("oSEstatusUniversidad").setEnabled(true);
 							oView.byId("oDTIGradoUniversidad").setEnabled(true);
 						}else{
+							
 							that.aSaveEstudio = true;
 						}
 						jQuery.sap.delayedCall(100, that, function() {
@@ -743,13 +745,16 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			that.unlockForm(oITFDatosAdicionales, oView);
 			this.aUpdateEstudiante = false;
 			this.aSaveEstudiante = false;
+			this.aUpdateDir = false;
 			this.aSaveEstudio = false;
 			this.aSaveReferencia = false;
 			this.aEncuesta = false;
 			this.aSaveSaber = false;
+			
 			// var aSaveReferencia;
 			// var aEncuesta;
 			var oINumEst = oView.byId("oINumEst");
+			var oINHijos = oView.byId("oINHijos");
 			var oSTipId = oView.byId("oSTipId");
 			var oItem = oSTipId.getSelectedItem();
 			var sItemKey = oSTipId.getSelectedItem().getKey();
@@ -785,13 +790,18 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 						if (!oData) {
 							that.clearform();
 							oINumEst.data("EstudianteAntiguo", "", true);
+							oINumEst.data("OnlyBp", "", true);
 							that.showDialog("Documento no encontrado...\n" + "Ingrese sus datos manualmente");
 							that.unlockForm(oITFDatosPersonales, oView);
 							that.unlockForm(oITFDatosAcademicos, oView);
 							// that.unlockForm(oITFDatosFamiliares, oView);
 						} else {
 							oINumEst.data("EstudianteAntiguo", "X", true);
+							oINumEst.data("OnlyBp", oData.OnlyBp, true);
 							oINumEst.data("BP", oData.Bpartner, true);
+							if(oData.DirRes !== ""){
+								that.aUpdateDir = true;
+							}
 							that.unlockForm(oITFDatosPersonales, oView);
 							that.getDpto(oData);
 							that.getCiudad(oData);
@@ -799,6 +809,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 							that.aSaveReferencia = that.getEstRef(that, oView, sNumId);
 							that.aEncuesta = that.getEncuesta(that, oView, sNumId);
 							that.showDialog("Revisa tus datos y completa los que falten, una ves termines puedes ir a la pestaña de Datos Academicos");
+							if(oData.ZzHijos === "0"){
+								oINHijos.setValue("");
+								oINHijos.setEditable(true);
+							}
 						}
 					}));
 				}
@@ -899,6 +913,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					if (aSaveEstudiante) {
 						oView.byId("oINumEst").setEditable(false);
 						oView.byId("oSTipId").setEnabled(false);
+						this.aUpdateDir == true;
 					}
 					this._oLoadDialog.close();
 					oINHijos.setValue(oEstudiante.ZzHijos);
@@ -910,6 +925,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			var aUpdateEstudiante = false;
 			var oView = this.getView();
 			var oEstudiante = {};
+			oEstudiante.OnlyBp = oView.byId("oINumEst").data("OnlyBp");
 			oEstudiante.Idnumber = oView.byId("oINumEst").getValue();
 			oEstudiante.Type = oView.byId("oSTipId").getSelectedItem().getKey();
 
@@ -1003,6 +1019,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					if (aUpdateEstudiante) {
 						oView.byId("oINumEst").setEditable(false);
 						oView.byId("oSTipId").setEnabled(false);
+						this.aUpdateDir == true;
 					}
 					this._oLoadDialog.close();
 				});
@@ -1735,7 +1752,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					oView = this.getView();
 					oModel = oView.getModel();
 					var oIDirRef = oView.byId("oIDirRef");
-					if (oIDirRef.getValue() === "") {
+					if (this.aUpdateDir === false) {
 						if (!this._oDireccionDialogRef) {
 							this._oDireccionDialogRef = sap.ui.xmlfragment("oDireccionDialogRef", "ZSLCM_PREGRADO.view.Direccion", this);
 						}
@@ -1754,7 +1771,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					oView = this.getView();
 					oModel = oView.getModel();
 					var oIDirRes = oView.byId("oIDirRes");
-					if (oIDirRes.getValue() === "") {
+					if (this.aSaveEstudiante === false) {
 						if (!this._oDireccionDialogEst) {
 							this._oDireccionDialogEst = sap.ui.xmlfragment("oDireccionDialogEst", "ZSLCM_PREGRADO.view.Direccion", this);
 						}
