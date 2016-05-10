@@ -31,7 +31,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 
 			var oIColegio = this.getView().byId("oIColegio");
 			var oToolTipColegio = new sap.ui.commons.RichTooltip({
-				text: "Usa palabras claves de tu universidad \nPor ejemplo: 'San Viator', 'Gimnasio Moderno', 'Liceo frances'... \nLuego has clic en el icono de este campo para buscar el Colegio o en el boton Buscar",
+				text: "Usa palabras claves de tu colegio \nPor ejemplo: 'San Viator', 'Gimnasio Moderno', 'Liceo frances'... \nLuego has clic en el icono de este campo para buscar el Colegio o en el boton Buscar",
 				title: "Ayuda Rapida"
 			});
 			oIColegio.setTooltip(oToolTipColegio);
