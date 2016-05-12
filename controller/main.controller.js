@@ -848,6 +848,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oEstudiante.Email = oView.byId("oIEmailEst").getValue();
 			oEstudiante.PaisRes = oView.byId("oSPaisRes").getSelectedItem().getKey();
 			oEstudiante.DptoRes = oView.byId("oSDptoRes").getSelectedItem().getKey();
+			if(oEstudiante.PaisRes === oEstudiante.DptoRes){
+					oEstudiante.DptoRes = "";
+			}
+			
 			oEstudiante.CiudadRes =  oView.byId("oSCiudadRes").getSelectedItem().getKey();
 			oEstudiante.TxtCiudadRes = oView.byId("oSCiudadRes").getSelectedItem().getText();
 			oEstudiante.Sexo = oView.byId("oSGenero").getSelectedItem().getKey();
@@ -865,6 +869,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oEstudiante.TelefonoRes = oView.byId("oITelRes").getValue();
 			oEstudiante.Gblnd = oView.byId("oSPaisNac").getSelectedItem().getKey();
 			oEstudiante.Gbdep = oView.byId("oSDptoNac").getSelectedItem().getKey();
+			if(oEstudiante.Gblnd === oEstudiante.Gbdep){
+				oEstudiante.Gbdep = "";
+			}
+			
 			oEstudiante.Gbort = oView.byId("oICiudadNac").getValue();
 			oEstudiante.TpSede = oView.byId("oSSede").getSelectedItem().getKey();
 			oEstudiante.EstadoCivil = oView.byId("oSEstadoCivil").getSelectedItem().getKey();
@@ -947,6 +955,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oEstudiante.Email = oView.byId("oIEmailEst").getValue();
 			oEstudiante.PaisRes = oView.byId("oSPaisRes").getSelectedItem().getKey();
 			oEstudiante.DptoRes = oView.byId("oSDptoRes").getSelectedItem().getKey();
+			if(oEstudiante.PaisRes === oEstudiante.DptoRes){
+					oEstudiante.DptoRes = "";
+			}
+			
 			oEstudiante.CiudadRes =  oView.byId("oSCiudadRes").getSelectedItem().getKey();
 			oEstudiante.TxtCiudadRes = oView.byId("oSCiudadRes").getSelectedItem().getText();
 			// oEstudiante.TxtCiudadRes = oView.byId("oICiudadRes").getValue();
@@ -970,6 +982,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oEstudiante.TelefonoRes = oView.byId("oITelRes").getValue();
 			oEstudiante.Gblnd = oView.byId("oSPaisNac").getSelectedItem().getKey();
 			oEstudiante.Gbdep = oView.byId("oSDptoNac").getSelectedItem().getKey();
+			if(oEstudiante.Gblnd === oEstudiante.Gbdep){
+				oEstudiante.Gbdep = "";
+			}
+			
 			oEstudiante.Gbort = oView.byId("oICiudadNac").getValue();
 			oEstudiante.TpSede = oView.byId("oSSede").getSelectedItem().getKey();
 			oEstudiante.EstadoCivil = oView.byId("oSEstadoCivil").getSelectedItem().getKey();
