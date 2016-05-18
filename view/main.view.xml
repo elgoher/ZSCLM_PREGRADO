@@ -7,7 +7,7 @@
 				<subHeader>
 					<Toolbar id="__toolbar0" width="">
 						<content>
-							<Button icon="" id="oBtnSalir" text="" type="Back" press="onPress" width=""/>
+							<!--<Button icon="" id="oBtnSalir" text="" type="Back" press="onPress" width=""/>-->
 							<ToolbarSpacer id="__spacer0"/>
 							<Title id="" level="H1" text="Inscripciones Pregrado" textAlign="Initial"/>
 							<ToolbarSpacer id="__spacer1"/>

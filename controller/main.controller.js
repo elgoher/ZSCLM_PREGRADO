@@ -1125,7 +1125,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oEncuesta.ZzMusica = "" + oView.byId("OCBMusica").getSelected() + "";
 			oEncuesta.ZzTecnologia = "" + oView.byId("oCBTecnologia").getSelected() + "";
 			oEncuesta.ZzArtes = "" + oView.byId("oCBArtes").getSelected() + "";
-			oEncuesta.ZzCultura = "" + oView.byId("oCBLectura").getSelected() + "";
+			// oEncuesta.ZzCultura = "" + oView.byId("oCBLectura").getSelected() + "";
 			oEncuesta.ZzMedio = "" + oView.byId("oCBMedioAmbiente").getSelected() + "";
 			oEncuesta.ZzViajes = "" + oView.byId("oCBViajes").getSelected() + "";
 			oEncuesta.ZzCine = "" + oView.byId("oCBCine").getSelected() + "";
@@ -1138,7 +1138,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			var oModel = oView.getModel();
 			console.log(oEncuesta);
 			console.log(this.aEncuesta);
-			// if (this.aEncuesta === false) {
+			if (this.aEncuesta === false) {
 				var busyDialog = oView.byId("BusyDialog");
 				busyDialog.open();
 				jQuery.sap.delayedCall(100, this, function() {
@@ -1160,7 +1160,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 					this.aEncuesta = aEncuesta;
 					busyDialog.close();
 				});
-			// }
+			}
 		},
 		//guardar estudios
 		saveEstudios: function() {
@@ -1579,7 +1579,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oItemTemplate.bindProperty("key", "Bland");
 			var item = oSPaisResRef.getSelectedItem();
 			var oContext = item.getBindingContext();
-			var sPath = oContext.getPath() + "/PaisToRegion";
+			var sPath;
+			if(oContext.getPath() === "/PaisSet('')"){
+				sPath = "/PaisSet('" + oData.Country + "')" + "/PaisToRegion";	
+			}else{
+				sPath = oContext.getPath() + "/PaisToRegion";
+			}
 			oSDptoResRef.setModel(oModel);
 			oSDptoResRef.setValue("");
 			oSDptoResRef.unbindItems();
