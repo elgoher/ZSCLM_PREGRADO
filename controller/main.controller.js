@@ -2793,13 +2793,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oItems.bindProperty("text", "Stext");
 			oItems.bindProperty("key", "Objid");
 			oSTipoPrograma.setModel(oModel);
-			oSTipoPrograma.setValue("");
-			oSNombrePrograma.setValue("");
+			// oSTipoPrograma.setValue("");
+			// oSNombrePrograma.setValue("");
 			oSTipoPrograma.unbindItems();
 			oSNombrePrograma.unbindItems();
 			oSNombrePrograma.unbindAggregation();
 			var BusyDialog = oView.byId("BusyDialog");
 			BusyDialog.open();
+			if(item.getKey() !== ""){
 			oSTipoPrograma.bindAggregation("items", {
 						path : sPath,
 						template : oItems,
@@ -2817,37 +2818,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 						 }
 						}
 						});
-			// jQuery.sap.delayedCall(10, this, function() {
-			// 	oSTipoPrograma.bindItems(sPath, oItems);
-			// });
-			// jQuery.sap.delayedCall(1000, this, function() {
-			// 	var text;
-			// 	var oItemLength = oSTipoPrograma.getItems();
-			// 	if (oItemLength.length === 0) {
-			// 		text = "En este momento la Sede " + item.getText() +
-			// 			" no tiene postgrados agendados, por favor comunicate con la universidad";
-			// 		// 			sap.m.MessageToast.show(text);
-			// 		this.showDialog(text);
-			// 	}
-			// 	BusyDialog.close();
-			// });
-			// jQuery.sap.delayedCall(1000, this, function() {
-			// var oItemLength;
-			// var text;
-			// var sNoItem = true;
-			// do {
-			// 	oItemLength = oSTipoPrograma.getItems();
-			// 	if (oItemLength.length === 0) {
-			// 			text = "En este momento la Sede " + item.getText() +
-			// 			" no tiene postgrados agendados, por favor comunicate con la universidad";
-			// 		this.showDialog(text);
-			// 		sNoItem = false;
-			// 	}
-			// 	console.log(sNoItem + oItemLength.length);
-			// }while (sNoItem);
-			// console.log("CERRAR");
-			// BusyDialog.close();
-			// });
+						oSNombrePrograma.setSelectedKey("");
+						oSTipoPrograma.setSelectedKey("");
+			}
 		},
 		//seleccion de tipo programa
 		OnSelectionChangeTipoProg: function(evt) {
@@ -2861,9 +2834,12 @@ sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller) {
 			oItems.bindProperty("text", "StextPrograma");
 			oItems.bindProperty("key", "ScObjid");
 			oSNombrePrograma.setModel(oModel);
-			oSNombrePrograma.setValue("");
+			
 			oSNombrePrograma.unbindItems();
+			if(item.getKey() !== ""){
 			oSNombrePrograma.bindItems(sPath, oItems);
+			oSNombrePrograma.setSelectedKey("");
+			}
 		},
 		//validar solo letras
 		validarNombreApellido: function(evt) {
